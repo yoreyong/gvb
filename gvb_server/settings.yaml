@@ -1,0 +1,22 @@
+# mysql configuration
+mysql:
+  host: 127.0.0.1
+  port: 3306
+  db: gvb-db
+  user: root
+  password: root
+  log_level: dev
+
+# log configuration
+logger:
+  level: info
+  prefix: '[gvb]'
+  director: log
+  show_line: true
+  log_in_console: true
+
+# system predefine
+system:
+  host: "0.0.0.0"
+  port: 8080
+  env: dev

@@ -24,7 +24,7 @@ go.work
 *.iml
 *.ipr
 *.iws
-.idea/
+.idea
 /build/
 /dist/
 /out/
