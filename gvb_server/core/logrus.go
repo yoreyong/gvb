@@ -20,7 +20,7 @@ const (
 type LogFormatter struct{}
 
 // Format instantiate Format(entry *logrus.Entry) ([]byte, error) interface
-// 将 Formatter 方法实例化到 LogFormatter 结构体上
+// 将 Format 方法实例化到 LogFormatter 结构体上, 注意: Format 是一个 interface
 func (t *LogFormatter) Format(entry *logrus.Entry) ([]byte, error) {
 	// Use different corresponding to different level
 	var levelColor int
@@ -58,16 +58,22 @@ func (t *LogFormatter) Format(entry *logrus.Entry) ([]byte, error) {
 	return b.Bytes(), nil
 }
 
+// InitLogger Init logger, called by main()
 func InitLogger() *logrus.Logger {
 	mLog := logrus.New()                                // 新建一个实例
 	mLog.SetOutput(os.Stdout)                           // 设置输出类型
 	mLog.SetReportCaller(global.Config.Logger.ShowLine) // 开启返回函数名和行号
 	mLog.SetFormatter(&LogFormatter{})                  // 设置自定义的Formatter
-	mLog.SetLevel(logrus.DebugLevel)                    // 设置最低的log level
+	level, err := logrus.ParseLevel(global.Config.Logger.Level)
+	if err != nil {
+		level = logrus.InfoLevel
+	}
+	mLog.SetLevel(level) // 设置最低的log level
 	InitDefaultLogger()
 	return mLog
 }
 
+// InitDefaultLogger Init Default logger
 func InitDefaultLogger() {
 	// global log
 	logrus.SetOutput(os.Stdout)
