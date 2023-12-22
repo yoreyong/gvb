@@ -20,5 +20,5 @@ type UserModel struct {
 	Role             ctype.Role       `gorm:"size:4;default:1" json:"role"`
 	SignStatus       ctype.SignStatus `gorm:"type=smallint(6)" json:"sign_status"`
 	ArticleModels    []ArticleModel   `gorm:"foreignKey:UserID" json:"-"`
-	SubscribesModels []ArticleModel   `gorm:"many2many:user2_subscribes;joinForeignKey:UserID;JoinReferences:ArticleID" json:"-"`
+	SubscribesModels []ArticleModel   `gorm:"many2many:user_subscribe_model;joinForeignKey:UserID;JoinReferences:ArticleID" json:"-"`
 }
