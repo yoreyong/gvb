@@ -8,14 +8,20 @@ import (
 	"gvb_server/models/res"
 )
 
-func (SettingsApi) SettingsInfoUpdateView(c *gin.Context) {
-	var cr config.SiteInfo
+// SettingsQQView GET
+func (SettingsApi) SettingsQQView(c *gin.Context) {
+	res.OkWithData(global.Config.QQ, c)
+}
+
+// SettingsQQUpdateView UPDATE
+func (SettingsApi) SettingsQQUpdateView(c *gin.Context) {
+	var cr config.QQ
 	err := c.ShouldBindJSON(&cr)
 	if err != nil {
 		res.FailWithCode(res.ArgumentError, c)
 		return
 	}
-	global.Config.SiteInfo = cr
+	global.Config.QQ = cr
 	err = core.SetYaml()
 	if err != nil {
 		global.Log.Error(err)

@@ -8,20 +8,20 @@ import (
 	"gvb_server/models/res"
 )
 
-// SettingsInfoView GET
-func (SettingsApi) SettingsInfoView(c *gin.Context) {
-	res.OkWithData(global.Config.SiteInfo, c)
+// SettingsQiNiuView GET
+func (SettingsApi) SettingsQiNiuView(c *gin.Context) {
+	res.OkWithData(global.Config.QiNiu, c)
 }
 
-// SettingsInfoUpdateView UPDATE
-func (SettingsApi) SettingsInfoUpdateView(c *gin.Context) {
-	var cr config.SiteInfo
+// SettingsQiNiuUpdateView UPDATE
+func (SettingsApi) SettingsQiNiuUpdateView(c *gin.Context) {
+	var cr config.QiNiu
 	err := c.ShouldBindJSON(&cr)
 	if err != nil {
 		res.FailWithCode(res.ArgumentError, c)
 		return
 	}
-	global.Config.SiteInfo = cr
+	global.Config.QiNiu = cr
 	err = core.SetYaml()
 	if err != nil {
 		global.Log.Error(err)

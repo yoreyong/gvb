@@ -34,26 +34,26 @@ site-info:
   gitee_url: ""
   github_url: ""
   linkedin_url: ""
+qq:
+  app_id: "123456"
+  key: "123456"
+  redirect: http://xx.xx.com/login?flag=qq
+qi_niu:
+  access_key: UMM-xxx-FdRIf-xx
+  secret_key: xxx
+  bucket: xxx
+  cdn: xxx://xxx.xxx.com/
+  zone: xxx
+  size: "5"
 email:
-  host: smtp.qq.com
-  port: 465
-  user: xxx@qq.com
+  host: xxx
+  port: 0
+  user: xxx
   password: xxx
   default_from_email: YORE
-  use_ssl: xx
-  user_tls: xx
+  use_ssl: false
+  user_tls: false
 jwt:
   secret: xxx
   expires: 48
-  issuer: xx
-qq:
-  app_id: "xxx"
-  key: xx
-  redirect: http://xx.xx.com/login?flag=qq
-qi_niu:
-  access_key: UMM-xx-FdRIf-xx
-  secret_key: xx
-  bucket: xx
-  cdn: xx://xx.xx.com/
-  zone: xx
-  size: 5
+  issuer: Sinba
