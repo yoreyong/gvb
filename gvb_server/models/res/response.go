@@ -17,6 +17,12 @@ type Response struct {
 	Msg  string      `json:"msg"`
 }
 
+// ListResponse 分页数据结构
+type ListResponse[T interface{}] struct {
+	Count int64 `json:"count"`
+	List  T     `json:"list"`
+}
+
 func Result(code int, data interface{}, msg string, c *gin.Context) {
 	c.JSON(http.StatusOK, Response{
 		Code: code,
@@ -35,6 +41,10 @@ func OkWithMessage(message string, c *gin.Context) {
 
 func OkWithData(data interface{}, c *gin.Context) {
 	Result(SUCCESS, data, "Success", c)
+}
+
+func OkWithList(list interface{}, count int64, c *gin.Context) {
+	OkWithData(ListResponse[interface{}]{Count: count, List: list}, c)
 }
 
 func OkWithDetailed(data interface{}, message string, c *gin.Context) {

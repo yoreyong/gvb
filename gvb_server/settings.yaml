@@ -1,7 +1,8 @@
 mysql:
   host: 127.0.0.1
   port: 3306
-  config: ""
+  config: "charset=utf8mb4&parseTime=True&loc=Local"
+#  config: ""
   db: gvb-db
   user: root
   password: root
@@ -12,6 +13,9 @@ logger:
   director: log
   show_Line: false
   log_In_Console: false
+upload:
+  size: 2
+  path: uploads/file
 system:
   host: 0.0.0.0
   port: 8080
@@ -39,6 +43,7 @@ qq:
   key: "123456"
   redirect: http://xx.xx.com/login?flag=qq
 qi_niu:
+  enabled: false
   access_key: UMM-xxx-FdRIf-xx
   secret_key: xxx
   bucket: xxx
