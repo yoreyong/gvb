@@ -20,6 +20,7 @@ func (ImagesApi) ImageRemoveView(c *gin.Context) {
 	count := global.DB.Find(&imageList, cr.IDList).RowsAffected
 	if count == 0 {
 		res.FailWithMessage("Files does not exist!", c)
+		return
 	}
 	global.DB.Delete(&imageList)
 	res.OkWithMessage(fmt.Sprintf("Totally delete %d files", count), c)

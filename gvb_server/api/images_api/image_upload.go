@@ -14,7 +14,7 @@ import (
 )
 
 var (
-	// 图片上传的白名单
+	// WhiteImageList 图片上传的白名单
 	WhiteImageList = []string{
 		".jpg", ".png", ".jpeg", ".ico", ".tiff", ".gif", ".svg", ".webp",
 	}

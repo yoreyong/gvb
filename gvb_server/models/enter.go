@@ -15,6 +15,7 @@ type PageInfo struct {
 	Sort  string `form:"sort"`
 }
 
+// RemoveRequest Batch Remove id structure
 type RemoveRequest struct {
 	IDList []uint `json:"id_list"`
 }

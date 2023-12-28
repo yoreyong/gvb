@@ -22,7 +22,7 @@ func InitRouter() *gin.Engine {
 	routerGroupApp.SettingsRouter()
 
 	// ImagesUpload api
-	routerGroupApp.ImagesUploadRouter()
+	routerGroupApp.ImagesRouter()
 
 	return router
 }

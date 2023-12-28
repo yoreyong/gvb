@@ -2,9 +2,10 @@ package router
 
 import "gvb_server/api"
 
-func (router RouterGroup) ImagesUploadRouter() {
-	imagesUploadApi := api.ApiGroupApp.ImagesApi
+func (router RouterGroup) ImagesRouter() {
+	imagesApi := api.ApiGroupApp.ImagesApi
 
-	router.POST("images", imagesUploadApi.ImagesUploadView)
-	router.GET("images", imagesUploadApi.ImageListWithPageView)
+	router.POST("images", imagesApi.ImagesUploadView)
+	router.GET("images", imagesApi.ImageListWithPageView)
+	router.DELETE("images", imagesApi.ImageRemoveView)
 }
