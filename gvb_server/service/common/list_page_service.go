@@ -21,11 +21,14 @@ func ComListPage[T interface{}](model T, option Option) (list []T, count int64, 
 		option.Sort = "created_at desc"
 	}
 
-	count = DB.Select("id").Find(&list).RowsAffected
+	query := DB.Where(model)
+
+	count = query.Select("id").Find(&list).RowsAffected
+	query = DB.Where(model)
 	offset := (option.Page - 1) * option.Limit
 	if offset < 0 {
 		offset = 0
 	}
-	err = DB.Limit(option.Limit).Offset(offset).Order(option.Sort).Find(&list).Error
+	err = query.Limit(option.Limit).Offset(offset).Order(option.Sort).Find(&list).Error
 	return list, count, err
 }

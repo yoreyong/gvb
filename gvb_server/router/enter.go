@@ -24,5 +24,8 @@ func InitRouter() *gin.Engine {
 	// ImagesUpload api
 	routerGroupApp.ImagesRouter()
 
+	// Advertise api
+	routerGroupApp.AdvertRouter()
+
 	return router
 }
